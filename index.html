@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Türkei – Informationswebsite</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #090b10;
+            color: #f5f7fa;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 72px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            background: rgba(9, 11, 16, 0.86);
+            backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+
+            z-index: 1000;
+        }
+
+        .logo {
+            color: white;
+            text-decoration: none;
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #aeb5c3;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+
+            transition: 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .menu-button {
+            display: none;
+
+            background: none;
+            border: none;
+            color: white;
+
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 120px 20px 80px;
+
+            background:
+                radial-gradient(
+                    circle at 50% 25%,
+                    rgba(220, 40, 60, 0.16),
+                    transparent 42%
+                );
+        }
+
+        .hero-label {
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+
+            color: #e05264;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 9vw, 110px);
+            line-height: 0.95;
+            letter-spacing: -5px;
+
+            margin-bottom: 28px;
+        }
+
+        .hero p {
+            max-width: 700px;
+
+            color: #aab1be;
+
+            font-size: 18px;
+        }
+
+        .hero-button {
+            display: inline-block;
+
+            margin-top: 35px;
+
+            padding: 14px 24px;
+
+            background: white;
+            color: #090b10;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            transition: 0.2s ease;
+        }
+
+        .hero-button:hover {
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        section {
+            max-width: 1300px;
+            margin: auto;
+
+            padding: 110px 6%;
+        }
+
+        .section-label {
+            color: #e05264;
+
+            font-size: 12px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: clamp(35px, 5vw, 55px);
+            line-height: 1.1;
+
+            margin-bottom: 15px;
+
+            letter-spacing: -1.5px;
+        }
+
+        .section-description {
+            max-width: 720px;
+
+            color: #929aa8;
+
+            margin-bottom: 50px;
+        }
+
+        /* =========================
+           ÜBERSICHT
+        ========================= */
+
+        .topics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .topic-card {
+            display: block;
+
+            padding: 30px;
+
+            min-height: 220px;
+
+            background: #11141b;
+
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 18px;
+
+            color: white;
+            text-decoration: none;
+
+            transition: 0.25s ease;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+
+            background: #151923;
+
+            border-color:
+                rgba(224,82,100,0.35);
+        }
+
+        .topic-number {
+            color: #636b79;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            margin-bottom: 30px;
+        }
+
+        .topic-card h3 {
+            font-size: 23px;
+            margin-bottom: 10px;
+        }
+
+        .topic-card p {
+            color: #9299a7;
+            font-size: 14px;
+        }
+
+        /* =========================
+           INFO CARDS
+        ========================= */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 18px;
+        }
+
+        .card {
+            padding: 28px;
+
+            background: #11141b;
+
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 16px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 14px;
+        }
+
+        .card p {
+            color: #a0a7b4;
+            font-size: 15px;
+        }
+
+        .card strong {
+            color: white;
+        }
+
+        /* =========================
+           LISTEN
+        ========================= */
+
+        .info-list {
+            display: flex;
+            flex-direction: column;
+
+            gap: 12px;
+        }
+
+        .list-item {
+            padding: 20px 22px;
+
+            background: #11141b;
+
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 13px;
+
+            color: #a7aeba;
+        }
+
+        .list-item strong {
+            display: block;
+
+            color: white;
+
+            margin-bottom: 4px;
+        }
+
+        /* =========================
+           FAKTEN
+        ========================= */
+
+        .facts {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 15px;
+        }
+
+        .fact {
+            padding: 25px;
+
+            background: #11141b;
+
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 15px;
+        }
+
+        .fact strong {
+            display: block;
+
+            font-size: 28px;
+
+            margin-bottom: 5px;
+        }
+
+        .fact span {
+            color: #9299a7;
+
+            font-size: 13px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 45px 6%;
+
+            text-align: center;
+
+            border-top: 1px solid rgba(255,255,255,0.08);
+
+            color: #656d7b;
+
+            font-size: 13px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 950px) {
+
+            .nav-links {
+                position: absolute;
+
+                top: 72px;
+                left: 0;
+
+                width: 100%;
+
+                display: none;
+                flex-direction: column;
+
+                gap: 0;
+
+                background: #090b10;
+
+                border-bottom:
+                    1px solid rgba(255,255,255,0.08);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links a {
+                display: block;
+
+                padding: 16px 6%;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            .topics {
+                grid-template-columns: 1fr;
+            }
+
+            .facts {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .facts {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            section {
+                padding: 80px 6%;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav>
+
+        <a href="#home" class="logo">
+            Türkei
+        </a>
+
+        <button
+            class="menu-button"
+            onclick="toggleMenu()">
+            ☰
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+
+            <li>
+                <a href="#geografie">
+                    Geografie & Lage
+                </a>
+            </li>
+
+            <li>
+                <a href="#bevoelkerung">
+                    Bevölkerung
+                </a>
+            </li>
+
+            <li>
+                <a href="#politik">
+                    Politik & Staat
+                </a>
+            </li>
+
+            <li>
+                <a href="#wirtschaft">
+                    Wirtschaft
+                </a>
+            </li>
+
+            <li>
+                <a href="#kultur">
+                    Kultur & Bräuche
+                </a>
+            </li>
+
+            <li>
+                <a href="#symbole">
+                    Symbole
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <header class="hero" id="home">
+
+        <div class="hero-label">
+            Informationswebsite
+        </div>
+
+        <h1>
+            Türkei
+        </h1>
+
+        <p>
+            Geografie, Bevölkerung, Politik, Wirtschaft,
+            Kultur und nationale Symbole der Türkei
+        </p>
+
+        <a href="#uebersicht" class="hero-button">
+            Informationen entdecken
+        </a>
+
+    </header>
+
+
+    <!-- =========================
+         ÜBERSICHT
+    ========================= -->
+
+    <section id="uebersicht">
+
+        <div class="section-label">
+            Übersicht
+        </div>
+
+        <h2 class="section-title">
+            Die Türkei im Überblick
+        </h2>
+
+        <p class="section-description">
+            Die folgenden sechs Themenbereiche geben einen
+            strukturierten Überblick über die in den Notizen
+            aufgeführten Informationen.
+        </p>
+
+
+        <div class="topics">
+
+            <a href="#geografie" class="topic-card">
+
+                <div class="topic-number">01</div>
+
+                <h3>
+                    Geografie & Lage
+                </h3>
+
+                <p>
+                    Landesname, Hauptstadt, geografische Lage,
+                    Klima, Zeitzone und Topografie.
+                </p>
+
+            </a>
+
+
+            <a href="#bevoelkerung" class="topic-card">
+
+                <div class="topic-number">02</div>
+
+                <h3>
+                    Bevölkerung & Gesellschaft
+                </h3>
+
+                <p>
+                    Einwohnerzahl, Sprachen, Religionen
+                    und Altersstruktur.
+                </p>
+
+            </a>
+
+
+            <a href="#politik" class="topic-card">
+
+                <div class="topic-number">03</div>
+
+                <h3>
+                    Politik & Staat
+                </h3>
+
+                <p>
+                    Staatsform, Staatsoberhaupt,
+                    Nationalfeiertag und internationale Organisationen.
+                </p>
+
+            </a>
+
+
+            <a href="#wirtschaft" class="topic-card">
+
+                <div class="topic-number">04</div>
+
+                <h3>
+                    Wirtschaft & Infrastruktur
+                </h3>
+
+                <p>
+                    Währung, Wirtschaftssektoren, Export,
+                    Import und Infrastruktur.
+                </p>
+
+            </a>
+
+
+            <a href="#kultur" class="topic-card">
+
+                <div class="topic-number">05</div>
+
+                <h3>
+                    Kultur & Bräuche
+                </h3>
+
+                <p>
+                    Volksspeisen, Musikinstrumente,
+                    Kleidung, Traditionen und Tänze.
+                </p>
+
+            </a>
+
+
+            <a href="#symbole" class="topic-card">
+
+                <div class="topic-number">06</div>
+
+                <h3>
+                    Symbole
+                </h3>
+
+                <p>
+                    Nationalflagge, Nationalhymne
+                    und Wappen.
+                </p>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         1. GEOGRAFIE
+    ========================= -->
+
+    <section id="geografie">
+
+        <div class="section-label">
+            01 · Geografie
+        </div>
+
+        <h2 class="section-title">
+            Geografie & Lage
+        </h2>
+
+        <p class="section-description">
+            Grundlegende geografische Informationen
+            über die Türkei.
+        </p>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>
+                    Offizieller Landesname
+                </h3>
+
+                <p>
+                    <strong>Republik Türkei</strong>
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Hauptstadt
+                </h3>
+
+                <p>
+                    <strong>Ankara</strong>
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Geografische Lage
+                </h3>
+
+                <p>
+                    Die Türkei liegt in <strong>Asien</strong>
+                    und zu einem kleineren Teil in
+                    <strong>Europa</strong>.
+                </p>
+
+                <p style="margin-top: 12px;">
+                    Nachbarländer sind Bulgarien,
+                    Griechenland, Syrien, Irak, Iran,
+                    Armenien und Georgien.
+                </p>
+
+                <p style="margin-top: 12px;">
+                    Angrenzende Meere sind das
+                    Schwarze Meer und das Mittelmeer.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Fläche
+                </h3>
+
+                <p>
+                    <strong>783.567 km²</strong>
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Klima & Zeitzone
+                </h3>
+
+                <p>
+                    Zeitzone: <strong>UTC +3</strong>
+                </p>
+
+                <p style="margin-top: 12px;">
+                    Genannte Hauptklimate:
+                    Mediterranes Klima,
+                    Kontinentalklima sowie
+                    subtropisches bis ozeanisches Klima.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Topografie
+                </h3>
+
+                <p>
+                    <strong>Wichtiges Gebirge:</strong>
+                    Taurusgebirge
+                </p>
+
+                <p style="margin-top: 12px;">
+                    <strong>Flüsse:</strong>
+                    Kızılırmak, Euphrat, Tigris, Sakarya
+                </p>
+
+                <p style="margin-top: 12px;">
+                    <strong>Seen:</strong>
+                    Van-See, Tuz Gölü, Beyşehir-See,
+                    Eğirdir-See, Salda-See
+                    und Atatürk-Stausee.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="card" style="margin-top: 18px;">
+
+            <h3>
+                Höchster Punkt
+            </h3>
+
+            <p>
+                <strong>Ararat – 5.137 m</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         2. BEVÖLKERUNG
+    ========================= -->
+
+    <section id="bevoelkerung">
+
+        <div class="section-label">
+            02 · Gesellschaft
+        </div>
+
+        <h2 class="section-title">
+            Bevölkerung & Gesellschaft
+        </h2>
+
+        <p class="section-description">
+            Angaben zur Bevölkerung, zu Sprachen,
+            Religionen und Altersstruktur.
+        </p>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>
+                    Einwohnerzahl
+                </h3>
+
+                <p>
+                    <strong>86,1 Mio.</strong>
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Bevölkerungsdichte
+                </h3>
+
+                <p>
+                    <strong>100 Einwohner/km²</strong>
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Amtssprachen
+                </h3>
+
+                <p>
+                    Türkisch: ca. 85–90 %
+                </p>
+
+                <p>
+                    Kurdisch: ca. 10–12 %
+                </p>
+
+                <p>
+                    Arabisch: ca. 1–2 %
+                </p>
+
+                <p>
+                    Zazaisch: ca. 1 %
+                </p>
+
+                <p>
+                    Sonstige Sprachen: ca. 1 %
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Religionen
+                </h3>
+
+                <p>
+                    Muslime: fast 100 %
+                </p>
+
+                <p>
+                    Christen: ca. 0,7 %
+                </p>
+
+                <p>
+                    Sonstige Religionen
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="card" style="margin-top: 18px;">
+
+            <h3>
+                Altersstruktur
+            </h3>
+
+            <div class="facts" style="margin-top: 20px;">
+
+                <div class="fact">
+                    <strong>ca. 33</strong>
+                    <span>
+                        Durchschnittsalter
+                    </span>
+                </div>
+
+                <div class="fact">
+                    <strong>21,7 %</strong>
+                    <span>
+                        unter 15 Jahren
+                    </span>
+                </div>
+
+                <div class="fact">
+                    <strong>68,7 %</strong>
+                    <span>
+                        15 bis 64 Jahre
+                    </span>
+                </div>
+
+                <div class="fact">
+                    <strong>ca. 9,6 %</strong>
+                    <span>
+                        über 64 Jahre
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         3. POLITIK
+    ========================= -->
+
+    <section id="politik">
+
+        <div class="section-label">
+            03 · Staat
+        </div>
+
+        <h2 class="section-title">
+            Politik & Staat
+        </h2>
+
+        <p class="section-description">
+            Staats- und Regierungsform, Nationalfeiertag
+            sowie internationale Bündnisse und Organisationen.
+        </p>
+
+
+        <div class="info-list">
+
+            <div class="list-item">
+
+                <strong>
+                    Staats- und Regierungsform
+                </strong>
+
+                Präsidiale Republik. Der Präsident ist
+                sowohl Staatsoberhaupt als auch Regierungschef.
+
+            </div>
+
+
+            <div class="list-item">
+
+                <strong>
+                    Staatsoberhaupt
+                </strong>
+
+                Recep Tayyip Erdoğan,
+                Präsident der Republik Türkei.
+
+            </div>
+
+
+            <div class="list-item">
+
+                <strong>
+                    Regierungschef/in
+                </strong>
+
+                Recep Tayyip Erdoğan,
+                Präsident der Republik Türkei.
+
+            </div>
+
+
+            <div class="list-item">
+
+                <strong>
+                    Nationalfeiertag
+                </strong>
+
+                29. Oktober – Tag der Republik
+                (Cumhuriyet Bayramı).
+
+                <br><br>
+
+                Er erinnert an die Ausrufung der Republik
+                Türkei am 29. Oktober 1923 durch
+                Mustafa Kemal Atatürk.
+
+            </div>
+
+
+            <div class="list-item">
+
+                <strong>
+                    NATO
+                </strong>
+
+                Mitglied seit 1952.
+
+            </div>
+
+
+            <div class="list-item">
+
+                <strong>
+                    UNO
+                </strong>
+
+                Gründungsmitglied seit 1945.
+
+            </div>
+
+
+            <div class="list-item">
+
+                <strong>
+                    Europarat
+                </strong>
+
+                Mitglied seit 1949.
+
+            </div>
+
+
+            <div class="list-item">
+
+                <strong>
+                    G20
+                </strong>
+
+                Mitglied.
+
+            </div>
+
+
+            <div class="list-item">
+
+                <strong>
+                    OSZE
+                </strong>
+
+                Mitglied.
+
+            </div>
+
+
+            <div class="list-item">
+
+                <strong>
+                    Organisation für Islamische Zusammenarbeit
+                </strong>
+
+                Mitglied.
+
+            </div>
+
+
+            <div class="list-item">
+
+                <strong>
+                    Europäische Union
+                </strong>
+
+                Die Türkei ist kein EU-Mitglied,
+                sondern seit 1999 EU-Beitrittskandidat.
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         4. WIRTSCHAFT
+    ========================= -->
+
+    <section id="wirtschaft">
+
+        <div class="section-label">
+            04 · Wirtschaft
+        </div>
+
+        <h2 class="section-title">
+            Wirtschaft & Infrastruktur
+        </h2>
+
+        <p class="section-description">
+            Währung, Wirtschaftssektoren, Außenhandel
+            und wichtige Infrastruktur.
+        </p>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>
+                    Währung
+                </h3>
+
+                <p>
+                    <strong>Türkische Lira (₺)</strong>
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Bruttoinlandsprodukt
+                </h3>
+
+                <p>
+                    Laut den Notizen gehört die Türkei
+                    zu den größten Volkswirtschaften
+                    der Welt.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Hauptwirtschaftszweige
+                </h3>
+
+                <p>
+                    Tourismus, Industrie
+                    (Auto, Textil), Landwirtschaft
+                    (Oliven, Getreide, Obst, Gemüse),
+                    Dienstleistungen und Bauwirtschaft.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Export
+                </h3>
+
+                <p>
+                    Exportiert werden unter anderem
+                    Autos, Textilien, Maschinen,
+                    Lebensmittel und Möbel.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Import
+                </h3>
+
+                <p>
+                    Importiert werden unter anderem
+                    Erdöl, Gas, Maschinen, Elektronik
+                    und chemische Produkte.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Wichtige Handelspartner
+                </h3>
+
+                <p>
+                    Deutschland, USA, Großbritannien,
+                    Italien, Irak und Russland.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="card" style="margin-top: 18px;">
+
+            <h3>
+                Infrastruktur
+            </h3>
+
+            <p>
+                Straßen- und Schienennetz,
+                Häfen und Flughäfen, unter anderem
+                in Istanbul, Ankara und Antalya.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         5. KULTUR
+    ========================= -->
+
+    <section id="kultur">
+
+        <div class="section-label">
+            05 · Kultur
+        </div>
+
+        <h2 class="section-title">
+            Kultur & Bräuche
+        </h2>
+
+        <p class="section-description">
+            Ausgewählte kulturelle Besonderheiten
+            und Traditionen aus den Notizen.
+        </p>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>
+                    Volksspeisen
+                </h3>
+
+                <p>
+                    Hüner-Suppe, Çiğ köfte,
+                    Döner, Manti und Kappadokien?
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Musikinstrumente
+                </h3>
+
+                <p>
+                    Saz, Ney und traditionelle
+                    türkische Instrumente.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Kleidung
+                </h3>
+
+                <p>
+                    Der Aufschrieb nennt traditionelle
+                    Kleidung, darunter beispielsweise
+                    Kopfbedeckungen und weitere
+                    traditionelle Kleidungsstücke.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Traditionen
+                </h3>
+
+                <p>
+                    Ramadan, Opferfest und
+                    Öl-Ringen.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         6. SYMBOLE
+    ========================= -->
+
+    <section id="symbole">
+
+        <div class="section-label">
+            06 · Nationale Symbole
+        </div>
+
+        <h2 class="section-title">
+            Symbole
+        </h2>
+
+        <p class="section-description">
+            Die im Aufschrieb genannten nationalen
+            Symbole der Türkei.
+        </p>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>
+                    Nationalflagge
+                </h3>
+
+                <p>
+                    Rot mit weißem Halbmond
+                    und Stern.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Nationalhymne
+                </h3>
+
+                <p>
+                    İstiklal Marşı.
+                </p>
+
+                <p style="margin-top: 12px;">
+                    Komponiert von Osman Zeki Üngör.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Wappen
+                </h3>
+
+                <p>
+                    Laut Aufschrieb gibt es kein
+                    offiziell festgelegtes Wappen.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        Türkei · Informationswebsite
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        function toggleMenu() {
+
+            const menu =
+                document.getElementById("navLinks");
+
+            menu.classList.toggle("active");
+
+        }
+
+
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(link => {
+
+                link.addEventListener("click", () => {
+
+                    document
+                        .getElementById("navLinks")
+                        .classList.remove("active");
+
+                });
+
+            });
+
+    </script>
+
+</body>
+</html>
